@@ -77,3 +77,6 @@ gem 'devise', '~> 4.9', '>= 4.9.3'
 
 # Adds .env file to maintain environment variables
 gem 'dotenv'
+
+# Allows to call third party apis
+gem 'httparty', '~> 0.21.0'

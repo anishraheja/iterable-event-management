@@ -1,7 +1,24 @@
-<% if user_signed_in? %>
-  <div><h1> Welcome <%= current_user.email %> </h1></div>
-  <%= button_to "Create Event A", new_event_path, method: :get, class: "btn btn-outline-danger" %>
-  <%= button_to "Create Event B", new_event_path, method: :get, class: "btn btn-outline-danger" %>
-<% else %>
-  <%= button_to "Sign in", new_user_session_path %>
-<% end %>
+<div class="main-container border border-dark-subtle p-2">
+  <% if user_signed_in? %>
+    <div class="text-center">
+      <h1> Welcome <%= current_user.email %> </h1>
+    </div>
+    <br/>
+    <br/>
+    <div class="home-container">
+      <div>
+        <%= link_to "Create Event A", new_event_path(event_type: 'A'), method: :get, class: "btn btn-outline-danger" %>
+      </div>
+      <div>
+        <%= link_to "Create Event B", new_event_path(event_type: 'B'), method: :get, class: "btn btn-outline-danger" %>
+      </div>
+    </div>  
+    <div class="text-center mt-5">
+      <p>
+      <%= link_to 'List All Events', events_path, class:"link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+      </p>
+    </div>
+  <% else %>
+    <%= link_to "Sign in", new_user_session_path %>
+  <% end %>
+</div>

@@ -1,0 +1,7 @@
+<h1> Event Details </h1>
+<h1> <%= @event.name %> </h1>
+<p> Event Type: <%= event_type_display(@event.event_type) %> </p>
+<p> Event Code: <%= @event.event_code %> </p>
+
+<%= link_to 'Edit', edit_event_path(@event), class: "btn btn-primary" %>
+<%= link_to 'Back', events_path, class: "btn btn-secondary" %>

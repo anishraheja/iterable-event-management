@@ -9,7 +9,16 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
+    event_type = params[:event_type]
+
+    @event = case event_type
+            when 'A'
+              Event.new(event_type: 'event_a')
+            when 'B'
+              Event.new(event_type: 'event_b')
+            else
+              Event.new
+            end
   end
 
   def edit
@@ -62,6 +71,6 @@ class EventsController < ApplicationController
 
     # Strong parameters to only allow a list of trusted parameters through.
     def event_params
-      params.permit(:name, :event_type, :even_code)
+      params.require(:event).permit(:name, :event_type, :event_code)
     end
 end
