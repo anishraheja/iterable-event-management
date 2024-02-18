@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <div><h1> Welcome <%= current_user.email %> </h1></div>
-  <%= button_to "Create Event A", new_event_path, method: :delete, class: "btn btn-outline-danger" %>
-  <%= button_to "Create Event B", new_event_path, method: :delete, class: "btn btn-outline-danger" %>
+  <%= button_to "Create Event A", new_event_path, method: :get, class: "btn btn-outline-danger" %>
+  <%= button_to "Create Event B", new_event_path, method: :get, class: "btn btn-outline-danger" %>
 <% else %>
   <%= button_to "Sign in", new_user_session_path %>
 <% end %>

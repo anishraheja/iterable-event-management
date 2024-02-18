@@ -30,6 +30,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    byebug
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to event_url(@event), notice: "Event was successfully updated." }
@@ -61,6 +62,6 @@ class EventsController < ApplicationController
 
     # Strong parameters to only allow a list of trusted parameters through.
     def event_params
-      params.fetch(:event, {})
+      params.permit(:name, :event_type, :even_code)
     end
 end
