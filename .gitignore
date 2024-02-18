@@ -36,3 +36,6 @@
 
 # Ignore the .env file that contains credentials necessary for the application
 /.env
+
+# Ignore byebug history
+/.byebug_history
