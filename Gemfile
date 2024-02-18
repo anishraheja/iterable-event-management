@@ -27,7 +27,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", ">= 4.0.1"
+gem "redis", ">= 4.0.1"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -68,3 +68,6 @@ end
 
 # Allows to implement authetication to the application
 gem 'devise', '~> 4.9', '>= 4.9.3'
+
+# Adds .env file to maintain environment variables
+gem 'dotenv'
