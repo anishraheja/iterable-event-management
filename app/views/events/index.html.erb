@@ -4,7 +4,9 @@
     <% @events.each do |event| %>
       <div class="event-list_items mt-2">
         <%= link_to event.name, event, class: 'list-group-item list-group-item-action custom_item' %>
-        <%= button_to "Delete", event_path(event), method: :delete, class: "btn btn-danger" %>
+        <% if event.users.include? current_user %>
+          <%= button_to "Delete", event_path(event), method: :delete, class: "btn btn-danger" %>
+        <% end %>
       </div>
     <% end %>
   </div>
