@@ -1,7 +1,7 @@
 <div class="main-container border border-dark-subtle p-2">
-    <div class="h4 pb-2 mb-4 text-danger border-bottom border-danger">
-     <h2>Sign up</h2>
-    </div>
+  <div class="h4 pb-2 mb-4 text-danger border-bottom border-danger">
+    <h2>Sign up</h2>
+  </div>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -30,5 +30,4 @@
   <% end %>
 
   <%= render "devise/shared/links" %>
-
 </div>

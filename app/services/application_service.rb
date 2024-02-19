@@ -1,6 +1,6 @@
 class ApplicationService
   include HTTParty
-  include Logger
+  include Loggable
 
   def self.call(*args, &block)
     new(*args, &block).call

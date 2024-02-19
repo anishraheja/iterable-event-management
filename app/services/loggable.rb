@@ -1,5 +1,7 @@
-module Logger
-  class <<self
+module Loggable
+  extend ActiveSupport::Concern
+
+  included  do
     attr_reader :logger
 
     def initialize_log

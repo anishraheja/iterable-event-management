@@ -2,7 +2,11 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
 
   def index
-    @events = Event.all
+    @events = if params[:search]
+                Event.where('name ILIKE ?', "%#{params[:search]}%")
+              else
+                Event.all
+              end
   end
 
   def show
@@ -32,20 +36,19 @@ class EventsController < ApplicationController
         format.html { redirect_to event_url(@event), notice: "Event was successfully created." }
         format.json { render :show, status: :created, location: @event }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to '/events/new?event_type=A', alert:  @event.errors.full_messages.first }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def update
-    byebug
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to event_url(@event), notice: "Event was successfully updated." }
         format.json { render :show, status: :ok, location: @event }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { redirect_to root_url, alert:  @event.errors.full_messages.first }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end

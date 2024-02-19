@@ -1,24 +1,29 @@
-<div class="main-container border border-dark-subtle p-2">
-  <% if user_signed_in? %>
-    <div class="text-center">
-      <h1> Welcome <%= current_user.email %> </h1>
-    </div>
-    <br/>
-    <br/>
-    <div class="home-container">
-      <div>
-        <%= link_to "Create Event A", new_event_path(event_type: 'A'), method: :get, class: "btn btn-outline-danger" %>
-      </div>
-      <div>
-        <%= link_to "Create Event B", new_event_path(event_type: 'B'), method: :get, class: "btn btn-outline-danger" %>
-      </div>
-    </div>  
-    <div class="text-center mt-5">
-      <p>
-      <%= link_to 'List All Events', events_path, class:"link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
-      </p>
-    </div>
+<% if user_signed_in? %>
+  <% if @events&.present? %>
+    <%= render 'events/events_list' %>
   <% else %>
-    <%= link_to "Sign in", new_user_session_path %>
+    <div class="main-container border border-dark-subtle p-2">
+      <div class="text-center">
+        <h1> Welcome <%= current_user.email %> </h1>
+      </div>
+      <br/>
+      <br/>
+      <div class="home-container">
+        <div>
+          <%= link_to "Create Event A", new_event_path(event_type: 'A'), method: :get, class: "btn btn-outline-danger" %>
+        </div>
+        <div>
+          <%= link_to "Create Event B", new_event_path(event_type: 'B'), method: :get, class: "btn btn-outline-danger" %>
+        </div>
+      </div>  
+      <div class="text-center mt-5">
+        <p>
+        <%= link_to 'List All Events', events_path, class:"link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+        </p>
+      </div>
+    </div>
   <% end %>
-</div>
+<% else %>
+  <%= image_tag "coffeebeans.jpeg" %>
+<% end %>
+

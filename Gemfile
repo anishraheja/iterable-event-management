@@ -80,3 +80,6 @@ gem 'dotenv'
 
 # Allows to call third party apis
 gem 'httparty', '~> 0.21.0'
+
+# To facilitate pagination
+gem 'kaminari'

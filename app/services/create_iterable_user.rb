@@ -1,4 +1,4 @@
-class InAppClickEvent < ApplicationService
+class CreateIterableUser < ApplicationService
   attr_reader :params
 
   def initialize(params)
@@ -7,7 +7,7 @@ class InAppClickEvent < ApplicationService
 
   def call
     with_error_handling do
-      url = get_url(ENV['ITERABLE_IN_APP_CLICK_ENDPOINT'])
+      url = get_url(ENV['ITERABLE_CREATE_UPDATE_USER_ENDPOINT'])
       response = HTTParty.post(url, headers: headers)
     end
   end
