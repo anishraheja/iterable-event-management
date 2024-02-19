@@ -1,6 +1,4 @@
 class Event < ApplicationRecord
-  paginates_per 5
-
   has_many :participations
   has_many :users, through: :participations
 
